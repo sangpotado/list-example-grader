@@ -1,5 +1,5 @@
-# CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
-CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
+CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
+# CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
 expectedFILE="ListExamples.java"
 
 set -e
@@ -43,14 +43,14 @@ set +e #reset
 
 #java -cp $CPATH org.junit.runner.JUnitCore grading-area/TestListExamples > hello.txt
 cd grading-area
-javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
+javac -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
 if [[ $? -ne 0 ]]
 then
     echo "failed to compile"
     exit 1
 fi
 echo "java files compiled"
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples > hello.txt
+java -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples > hello.txt
 # Draw a picture/take notes on the directory structure that's set up after
 # getting to this point
 
